@@ -1,4 +1,7 @@
 **Simple Chat Backend PHP**
+
+[![CI Status](https://circleci.com/gh/maxmousee/simple_chat_php.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/maxmousee/simple_chat_php)
+
 ----
   <Send and receive messages using a JSON API._>
   
