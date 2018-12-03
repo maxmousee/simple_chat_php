@@ -1,8 +1,10 @@
 <?php  
-require_once 'PHPUnit/Framework.php';  
+  
 require_once 'User.php';
 
-class UserTest extends PHPUnit_Framework_TestCase  
+use PHPUnit\Framework\TestCase;
+
+class UserTest extends TestCase  
 {
 
     public function testCreateUser()
