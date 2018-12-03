@@ -9,7 +9,7 @@ require 'Message.php';
 $username = $_GET['username'];
 
 try {
-    $result = Message.getMessagesFromUser($username);
+    $result = Message::getMessagesFromUser($username);
     echo $result;
 } catch (Exception $e) {
     http_response_code(400);

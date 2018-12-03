@@ -7,7 +7,7 @@ $from_username = $_GET['from'];
 $msg_text = $_GET['text'];
 
 try {
-    $Message->sendMessage($from_username, $to_username, $msg_text);
+    Message::sendMessage($from_username, $to_username, $msg_text);
     http_response_code(200);
 } catch (Exception $e) {
     http_response_code(400);

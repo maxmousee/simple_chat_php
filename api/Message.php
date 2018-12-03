@@ -5,14 +5,14 @@ require 'api/User.php';
 final class Message
 {
     public static function sendMessage($from_username, $to_username, $text) {
-        $to_uid = $User->getUserIdByUserName($to_username);
+        $to_uid = User::getUserIdByUserName($to_username);
 
         if ($to_uid == false) {
             throw new Exception('Recipient user does NOT exist.');
             exit;
         }
 
-        $from_userid = $User->getUserIdByUserName($from_username);
+        $from_userid = User::getUserIdByUserName($from_username);
 
         if ($from_userid == false) {
             throw new Exception('Sender user does NOT exist.');
@@ -32,7 +32,7 @@ final class Message
     }
 
     public static function getMessagesFromUser($username) {
-        $uid = $User->getUserIdByUserName($username);
+        $uid = User::getUserIdByUserName($username);
 
         if ($uid == false) {
             throw new Exception('User does NOT exist.');
