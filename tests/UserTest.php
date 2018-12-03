@@ -37,7 +37,7 @@ class UserTest extends TestCase
 
     public function testInexistentUser()
     {
-        $username = "invaliduser1234";
+        $username = "invaliduser123456788";
         $result = User::userExists($username);
         $this->assertEquals(false, $result);
     }

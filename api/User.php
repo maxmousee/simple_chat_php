@@ -30,8 +30,9 @@ final class User
         $result = $database->query($sql);
         if ($result->numColumns() == 0) {
             return false;
+        } else {
+            return true;
         }
-        return true;
     }
 
     public static function getUserIdByUserName($username) {
