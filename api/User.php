@@ -10,6 +10,7 @@ final class User
             return false;
         }
 
+        $db = getDB();
         // Add message to message table
         $db->exec('BEGIN');
         $result = $db->query("INSERT INTO 'users' (username)
