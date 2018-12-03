@@ -15,12 +15,17 @@ jobs:
       # - image: circleci/mysql:9.4
 
     working_directory: ~/repo/
+    parallelism: 4
 
     steps:
       - checkout
       - run: sudo apt install -y libsqlite3-dev zlib1g-dev
       - run: sudo docker-php-ext-install zip
       - run: sudo composer self-update
-      - run: composer install -n --prefer-dist        
+      - run: composer install -n --prefer-dist
+      - run:
+            name: Wait for packages install
+            command: |
+              sleep 300
       # run tests!
       - run: phpunit
