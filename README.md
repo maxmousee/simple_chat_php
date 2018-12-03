@@ -3,6 +3,7 @@
 [![CI Status](https://circleci.com/gh/maxmousee/simple_chat_php.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/maxmousee/simple_chat_php)
 
 ----
+
   <Send and receive messages using a JSON API._>
   
   Written using PHP 7 and SQLite3.
@@ -99,4 +100,4 @@
 
 * **Notes:**
 
-<_Things to improve: unit tests, error handling and add CircleCI support._> 
+<_Things to improve: unit tests, add functional tests, error handling._> 
