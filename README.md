@@ -2,6 +2,8 @@
 
 [![CI Status](https://circleci.com/gh/maxmousee/simple_chat_php.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/maxmousee/simple_chat_php)
 
+[![BCH compliance](https://bettercodehub.com/edge/badge/maxmousee/simple_chat_php?branch=master)](https://bettercodehub.com/)
+
 ----
 
   <Send and receive messages using a JSON API._>
