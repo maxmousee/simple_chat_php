@@ -26,7 +26,6 @@ jobs:
       - run: composer require --dev phpunit/phpunit ^7
       - run: wget -O phpunit https://phar.phpunit.de/phpunit-7.phar
       - run: chmod +x phpunit
-      # Wait for package install and run tests
+      # Run tests
       - run: |
-              sleep 15
               ./phpunit tests
