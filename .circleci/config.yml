@@ -23,9 +23,7 @@ jobs:
       - run: sudo docker-php-ext-install zip
       - run: sudo composer self-update
       - run: composer install -n --prefer-dist
-      - run:
-            name: Wait for packages install
-            command: |
+      # Wait for package install and run tests
+      - run: |
               sleep 30
-      # run tests!
-      - run: phpunit
+              phpunit
