@@ -23,18 +23,6 @@ final class User
         return true;
     }
 
-    public static function userExists($username) {
-        $database = getDB();
-        // Get by username.
-        $sql = "SELECT count(1) FROM 'users' WHERE username = '$username' ";
-        $result = $database->query($sql);
-        if ($result->numColumns() == 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     public static function getUserIdByUserName($username) {
         $database = getDB();
         // Get by username.

@@ -10,12 +10,6 @@ if (isset($_GET['username']) && count($_GET) == 1) {
     // Sanitize.
     $username = $_GET['username'];
 
-    $exists = User::userExists($username);
-
-    if($exists == false) {
-        http_response_code(400);
-    }
-
     try {
         $result = Message::getMessagesFromUser($username);
         echo $result;

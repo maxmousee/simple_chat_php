@@ -25,7 +25,7 @@ class UserTest extends TestCase
     {
         $username = "maxmouse";
         $result = User::getUserIdByUserName($username);
-        $this->assertEquals(TRUE, $result);
+        $this->assertEquals(42, $result);
     }
 
     public function testShouldNotGetInexistentUser()
@@ -33,19 +33,5 @@ class UserTest extends TestCase
         $username = "toby";
         $result = User::getUserIdByUserName($username);
         $this->assertEquals("", $result);
-    }
-
-    public function testInexistentUser()
-    {
-        $username = "invaliduser123456788";
-        $result = User::userExists($username);
-        $this->assertEquals(false, $result);
-    }
-
-    public function testBootstrappedUserExists()
-    {
-        $username = "maxmouse";
-        $result = User::userExists($username);
-        $this->assertEquals(true, $result);
     }
 }
