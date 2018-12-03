@@ -11,8 +11,7 @@
   copy all files into a webserver - tested using Apache
   
   How to run tests:
-  TODO
-    'mvn test'
+    'phpunit tests'
   
   How to test:
   'curl -X GET http://localhost:8080/api/getMessages?username=maxmouse'
@@ -100,4 +99,4 @@
 
 * **Notes:**
 
-<_Things to improve: unit tests, docker support, better separation in modules and error handling._> 
+<_Things to improve: unit tests, error handling and add CircleCI support._> 
