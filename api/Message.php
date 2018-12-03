@@ -19,6 +19,7 @@ final class Message
             exit;
         }
 
+        $db = getDB();
         // Add message to message table
         $db->exec('BEGIN');
         $result = $db->query("INSERT INTO 'messages' (user_id, from_user, message)
