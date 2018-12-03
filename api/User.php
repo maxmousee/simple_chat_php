@@ -4,7 +4,7 @@ require 'connect.php';
 final class User
 {
     public static function createUser($username) {
-        $user_exists = getUserIdByUserName($username);
+        $user_exists = User::getUserIdByUserName($username);
 
         if ($user_exists == true) {
             return false;
