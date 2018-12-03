@@ -28,7 +28,7 @@ final class User
         // Get by username.
         $sql = "SELECT count(1) FROM 'users' WHERE username = '$username' ";
         $result = $database->query($sql);
-        if ($exists->numColumns() == 0) {
+        if ($result->numColumns() == 0) {
             return false;
         }
         return true;
