@@ -13,5 +13,6 @@ $json = json_encode($result);
 
 echo $json;
 
+$db->close();
 
 exit;

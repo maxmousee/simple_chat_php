@@ -3,13 +3,14 @@
 // Create a new database, if the file doesn't exist and open it for reading/writing.
 // The extension of the file is arbitrary.
 
-$db = new SQLite3('messenger.sqlite', SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
+$db = getDB();
 // Create a table.
 $db->query('CREATE TABLE IF NOT EXISTS "messages" (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     "user_id" INTEGER,
-    "message" VARCHAR,
-    "time" DATETIME
+    "from_user" INTEGER,
+    "message" VARCHAR NOT NULL,
+    "time" DATETIME DEFAULT CURRENT_TIMESTAMP
 )');
 
 $db->query('CREATE TABLE IF NOT EXISTS "users" (
@@ -23,5 +24,9 @@ $db->query('INSERT OR REPLACE INTO "users" ("id", "username")
 $db->exec('COMMIT');
 $db->exec('BEGIN');
 $db->query('INSERT OR REPLACE INTO "users" ("id", "username")
-    VALUES (43, "someonelse")');
+    VALUES (43, "john")');
 $db->exec('COMMIT');
+
+function getDB() {
+    return new SQLite3('messenger.sqlite', SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
+}
