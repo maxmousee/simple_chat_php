@@ -1,6 +1,6 @@
 <?php
-require 'connect.php';
-require 'api/User.php';
+require_once 'connect.php';
+require_once 'api/User.php';
 
 final class Message
 {
