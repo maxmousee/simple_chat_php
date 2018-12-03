@@ -17,9 +17,13 @@ if ($uid == false) {
 
 // Get by user_id
 
-$result = $db->querySingle("SELECT * FROM 'messages' WHERE user_id = '$uid' ORDER BY time DESC", true);
+$pdo = getPDO();
 
-$json = json_encode($result);
+$all_msgs = $pdo -> query("SELECT * FROM 'messages' WHERE user_id = '$uid' ORDER BY time DESC");
+
+$all_results = $all_msgs->fetchAll();
+
+$json = json_encode($all_results);
 
 echo $json;
 

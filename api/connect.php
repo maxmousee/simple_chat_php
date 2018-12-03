@@ -27,6 +27,18 @@ $db->query('INSERT OR REPLACE INTO "users" ("id", "username")
     VALUES (43, "john")');
 $db->exec('COMMIT');
 
+function getPDO() {
+    try{
+        $pdo = new PDO('sqlite:'.dirname(__FILE__).'/messenger.sqlite');
+        $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $pdo;
+    } catch(Exception $e) {
+        echo $e->getMessage();
+        die();
+    }
+}
+
 function getDB() {
     return new SQLite3('messenger.sqlite', SQLITE3_OPEN_CREATE | SQLITE3_OPEN_READWRITE);
 }
