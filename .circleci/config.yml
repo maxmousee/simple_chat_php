@@ -26,6 +26,6 @@ jobs:
       - run:
             name: Wait for packages install
             command: |
-              sleep 300
+              sleep 30
       # run tests!
       - run: phpunit
