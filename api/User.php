@@ -27,7 +27,11 @@ final class User
         $database = getDB();
         // Get by username.
         $sql = "SELECT count(1) FROM 'users' WHERE username = '$username' ";
-        return $database->query($sql);
+        $result = $database->query($sql);
+        if ($exists->numColumns() == 0) {
+            return false;
+        }
+        return true;
     }
 
     public static function getUserIdByUserName($username) {

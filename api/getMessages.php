@@ -12,7 +12,7 @@ if (isset($_GET['username']) && count($_GET) == 1) {
 
     $exists = User::userExists($username);
 
-    if($exists->numColumns() == 0) {
+    if($exists == false) {
         http_response_code(400);
     }
 

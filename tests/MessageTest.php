@@ -12,8 +12,8 @@ class MessageTest extends TestCase
         $username = "sender1";
         $to_username = "maxmouse";
         $text = "a test message";
-        $result_user = User::createUser($username);
-        $result = Message::sendMessage($username, $to_username, $text);
+        User::createUser($username);
+        Message::sendMessage($username, $to_username, $text);
     }
 
     public function testNotSendMessageNonExistentSender()
@@ -22,7 +22,7 @@ class MessageTest extends TestCase
         $username = "sender2";
         $to_username = "maxmouse";
         $text = "a test message";
-        $result = Message::sendMessage($username, $to_username, $text);
+        Message::sendMessage($username, $to_username, $text);
     }
 
     public function testNotSendMessageNonExistentReceiver()
@@ -31,6 +31,6 @@ class MessageTest extends TestCase
         $username = "maxmouse";
         $to_username = "invaliduser";
         $text = "a test message";
-        $result = Message::sendMessage($username, $to_username, $text);
+        Message::sendMessage($username, $to_username, $text);
     }
 }
