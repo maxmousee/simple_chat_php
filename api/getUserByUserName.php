@@ -1,23 +1,21 @@
 <?php
-require 'connect.php';
+require_once 'connect.php';
+require_once 'User.php';
 
-// Sanitize.
-$username = $_GET['username'];
+if (isset($_GET['username']) && count($_GET) == 1) {
 
-// Get by username.
-$sql = "SELECT * FROM 'users' WHERE username = '$username'";
+    // Sanitize.
+    $username = $_GET['username'];
 
-$result = $db->querySingle($sql, true);
+    $result = User::getUserByUserName($username);
 
-if ($result == false) {
-    http_response_code(404);
+    if ($result == false) {
+        http_response_code(404);
+    }
+
+    echo $result;
+
     exit;
+} else {
+    http_response_code(400);
 }
-
-$json = json_encode($result);
-
-echo $json;
-
-$db->close();
-
-exit;

@@ -23,10 +23,33 @@ final class User
         return true;
     }
 
+    public static function userExists($username) {
+        $database = getDB();
+        // Get by username.
+        $sql = "SELECT count(1) FROM 'users' WHERE username = '$username' ";
+        return $database->query($sql);
+    }
+
     public static function getUserIdByUserName($username) {
         $database = getDB();
         // Get by username.
         $sql = "SELECT id FROM 'users' WHERE username = '$username' ";
         return $database->querySingle($sql, false);
+    }
+
+    public static function getUserByUserName($username) {
+        $database = getDB();
+        // Get by username.
+        $sql = "SELECT * FROM 'users' WHERE username = '$username' ";
+
+        $result = $database->querySingle($sql, true);
+
+        if(empty($result)) {
+            return false;
+        }
+
+        $json = json_encode($result);
+
+        return $json;
     }
 }

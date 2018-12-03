@@ -1,6 +1,6 @@
 <?php
 require_once 'connect.php';
-require_once 'api/User.php';
+require_once 'User.php';
 
 final class Message
 {
@@ -23,7 +23,7 @@ final class Message
         // Add message to message table
         $db->exec('BEGIN');
         $result = $db->query("INSERT INTO 'messages' (user_id, from_user, message)
-            VALUES ('$to_uid', '$from_userid', '$msg_text')");
+            VALUES ('$to_uid', '$from_userid', '$text')");
 
         $db->exec('COMMIT');
 
@@ -48,8 +48,6 @@ final class Message
         $all_results = $all_msgs->fetchAll();
 
         $json = json_encode($all_results);
-
-        $db->close();
 
         return $json;
     }

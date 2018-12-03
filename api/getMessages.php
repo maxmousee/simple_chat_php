@@ -3,14 +3,25 @@
  * Returns the list of messages.
  */
 
-require 'Message.php';
+require_once 'Message.php';
 
-// Sanitize.
-$username = $_GET['username'];
+if (isset($_GET['username']) && count($_GET) == 1) {
 
-try {
-    $result = Message::getMessagesFromUser($username);
-    echo $result;
-} catch (Exception $e) {
+    // Sanitize.
+    $username = $_GET['username'];
+
+    $exists = User::userExists($username);
+
+    if($exists->numColumns() == 0) {
+        http_response_code(400);
+    }
+
+    try {
+        $result = Message::getMessagesFromUser($username);
+        echo $result;
+    } catch (Exception $e) {
+        http_response_code(400);
+    }
+} else {
     http_response_code(400);
 }
